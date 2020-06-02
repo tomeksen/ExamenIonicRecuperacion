@@ -24,7 +24,7 @@ export class HomePage {
   };
 
   uploadproduct(product: IProducto){
-      this.arrayProductos.push(product)
-      alert(product.nombreProd+" se ha insertado correctamente")
-  }
+    this.arrayProductos.push(product)
+    alert(product.nombreProd+" se ha insertado correctamente")
+}
 }
