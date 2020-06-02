@@ -1,20 +1,88 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Blank
+      Ionic Blank
     </ion-title>
   </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+</ion-header> 
+  <ion-content>
+    <div class="ion-padding">
+      <ion-item>
+        <ion-label position="stacked">Nombre <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input required type="text" [(ngModel)]="producto.nombreProd"></ion-input>
+      </ion-item> 
+      <ion-item>
+        <ion-label position="stacked">Descripción<ion-text color="danger">*</ion-text></ion-label>
+        <ion-input required type="text" [(ngModel)]="producto.descProd"></ion-input>
+      </ion-item> 
+      <ion-item>
+        <ion-label position="stacked">Precio <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input required type="int" [(ngModel)]="producto.precioProd"></ion-input>
+      </ion-item>  
+      <p>
+      <ion-item>
+        <ion-label>Categoría</ion-label>
+        <ion-select [(ngModel)]= "producto.cateProd">
+          <ion-select-option value="tecnologia" >tecnología</ion-select-option>
+          <ion-select-option value="hogar">hogar</ion-select-option>
+          <ion-select-option value="inmobiliaria">inmobiliaria</ion-select-option>
+          <ion-select-option value="motor">motor</ion-select-option>
+        </ion-select>
+      </ion-item>
+      </p>
+      <p>  
+      <ion-card *ngIf="producto.cateProd == 'motor'">
+        <ion-item position="stacked">
+        <ion-label position="stacked">vehiculo</ion-label>
+        <ion-select>
+          <ion-select-option value="coche" >coche</ion-select-option>
+          <ion-select-option value="moto">moto</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">kilometros<ion-text color="danger">*</ion-text></ion-label>
+        <ion-input required type="int"></ion-input>
+      </ion-item>
+        <ion-item>
+        <ion-label position="stacked">Años<ion-text color="danger">*</ion-text></ion-label>
+        <ion-input required type="int"></ion-input>
+      </ion-item>
+      </ion-card>
+      <ion-card *ngIf="producto.cateProd == 'inmobiliaria'">
+        <ion-item>
+          <ion-label position="stacked">metros cuadrados<ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required type="int"></ion-input>
+        </ion-item>
+          <ion-item>
+          <ion-label position="stacked">número de baños<ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required type="int"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">habitaciones<ion-text color="danger">*</ion-text></ion-label>
+            <ion-input required type="int"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label position="stacked">localidad<ion-text color="danger">*</ion-text></ion-label>
+              <ion-input required type="text"></ion-input>
+            </ion-item>
+        </ion-card>
+        <ion-card *ngIf="producto.cateProd == 'tecnologia'">
+            <ion-item position="stacked">
+                <ion-label position="stacked">estado del producto</ion-label>
+                <ion-select>
+                  <ion-select-option value="perfecto estado" >perfecto estado</ion-select-option>
+                  <ion-select-option value="nuevo">nuevo</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-card>
+      </p>
+      <ion-button shape="round"(click)="uploadproduct(producto)">Guardar Producto</ion-button>
+      <p>
+        <ion-list>
+          <ion-item *ngFor="let item of arrayProductos">
+              {{item.nombreProd}}
+          </ion-item>
+        </ion-list>
+      </p>
+    </div>
 </ion-content>
