@@ -3,7 +3,8 @@ export interface IProducto {
     "nombreProd": string,
     "descProd": string,
     "cateProd": string,
-    "precioProd": number
+    "precioProd": number,
+    "key": string
 }
 
 export interface IInmobiliaria extends IProducto{

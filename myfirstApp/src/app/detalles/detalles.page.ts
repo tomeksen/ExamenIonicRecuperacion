@@ -10,17 +10,28 @@ import { IProducto, IMotor, IInmobiliaria, ITecnologia } from '../interfaces';
 })
 export class DetallesPage implements OnInit {
 
-  id : number;
-  producto : (IProducto | IMotor | IInmobiliaria | ITecnologia);
+  key : string;
+  producto : object={};
+  //productos : (IProducto | IMotor | IInmobiliaria | ITecnologia)[] = [];
 
   constructor(private _activatedRoute: ActivatedRoute, private _productoService : ProductoService) { }
 
   ngOnInit() {
-    this.id = +this._activatedRoute.snapshot.paramMap.get('id');
-    console.log("he recibido un "+this.id);
-    this.producto = this._productoService.getProducto(this.id);
+    this.key = this._activatedRoute.snapshot.paramMap.get('key');
+    console.log("he recibido un "+this.key);
+    //this.producto = this._productoService.getProducto(this.id);
     
-    console.log("Nombre: " + this.producto.nombreProd);
+    //console.log("Nombre: " + this.productos.nombreProd);
+
+    //let ref = this._productoService.getProductos();
+
+    let ref = this._productoService.getProductos().orderByKey().equalTo(this.key);
+    
+    ref.once("value", snapshot => {
+      snapshot.forEach(child => {
+        this.producto=child.val();
+      })
+    })
   }
 
 }

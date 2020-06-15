@@ -9,7 +9,7 @@ const routes: Routes = [
     loadChildren: () => import('./listado/listado.module').then( m => m.ListadoPageModule)
   },
   {
-    path: 'detalles/:id',
+    path: 'detalles/:key',
     loadChildren: () => import('./detalles/detalles.module').then( m => m.DetallesPageModule)
   },
   {

@@ -1,0 +1,135 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Insertar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-content>
+    <ion-list>
+      <ion-radio-group  [(ngModel)]="cateProd">
+        <ion-list-header>
+          Seleccione categoría:
+        </ion-list-header>
+  
+        <ion-item>
+          <ion-label>Hogar</ion-label>
+          <ion-radio value="Hogar"  (click)="cambiar_Oculto()"></ion-radio>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label>Tecnología</ion-label>
+          <ion-radio value="Tecnologia" (click)="cambiar_Oculto1()"></ion-radio>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label>Inmobiliaria</ion-label>
+          <ion-radio value="Inmobiliaria"  (click)="cambiar_Oculto2()"></ion-radio>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>Motor</ion-label>
+          <ion-radio value="Motor" (click)="cambiar_Oculto3()"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+  
+    <ion-item>
+      <ion-label position="floating" >Nombre:</ion-label>
+      <ion-input [(ngModel)]="nombreProd"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Descripción:</ion-label>
+      <ion-input [(ngModel)]="descProd"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Precio:</ion-label>
+      <ion-input type="number" [(ngModel)]="precioProd"></ion-input>
+    </ion-item>
+    <!-- Motor -->
+    <ion-grid *ngIf = "oculto3 == true">
+      <ion-row>
+        <ion-col size="6">
+          <ion-list>
+            <ion-radio-group [(ngModel)]="tipoVehiculo">
+              <ion-item>
+                <ion-label>Coche</ion-label>
+                <ion-radio value="Coche"></ion-radio>
+              </ion-item>
+          
+              <ion-item>
+                <ion-label>Moto</ion-label>
+                <ion-radio value="Moto"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-list>
+        </ion-col>
+        <ion-col size="3" size-lg>
+          <ion-item>
+            <ion-label position="floating">Km:</ion-label>
+            <ion-input type="number" [(ngModel)]="kilometrosVehiculo"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Año:</ion-label>
+            <ion-input type="number" [(ngModel)]="anyoVehiculo"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- Inmobiliaria -->
+    <ion-grid *ngIf = "oculto2 == true">
+      <ion-row>
+        <ion-col size="6">
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating" [style.width.px]="width">m²:</ion-label>
+              <ion-input type="number" [(ngModel)]="metrosCuadrados"></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+        <ion-col size="6" size-lg>
+          <ion-item>
+            <ion-label position="floating">nº Baños:</ion-label>
+            <ion-input type="number" [(ngModel)]="numBanyos"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">nº Hab.:</ion-label>
+            <ion-input type="number" [(ngModel)]="numHabitaciones"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating">Localidad:</ion-label>
+              <ion-input [(ngModel)]="localidad"></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- Tecnologia -->
+    <ion-grid *ngIf = "oculto1 == true">
+      <ion-row>
+        <ion-col size="6">
+          <ion-list>
+            <ion-radio-group [(ngModel)]="estadoProducto">
+              <ion-item>
+                <ion-label>Perfecto estado</ion-label>
+                <ion-radio value="perfectoestado"></ion-radio>
+              </ion-item>
+          
+              <ion-item>
+                <ion-label>Usado</ion-label>
+                <ion-radio value="usado"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+  
+    <ion-button expand="block" (click)="insertarProducto()">Insertar producto</ion-button>
+</ion-content>

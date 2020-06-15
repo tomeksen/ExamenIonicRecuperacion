@@ -10,13 +10,22 @@ import { ProductoService } from '../services/producto.service';
 export class ListadoPage implements OnInit {
 
   id : number;
-  productos: (IProducto | IMotor | IInmobiliaria | ITecnologia)[];
+  productos: (IProducto | IMotor | IInmobiliaria | ITecnologia)[] = [];
 
   constructor(private _productoService : ProductoService) {
   }
 
   ngOnInit(){
-    this.productos = this._productoService.getProductos();
+    let ref = this._productoService.getProductos();
+    
+    ref.once("value", snapshot => {
+      snapshot.forEach(child => {
+        let value = child.val();
+        value.key=child.key;
+        this.productos.push(value);
+        console.log("objeto: " + child.val().nombreProd);
+      })
+    })
   }
 
 }
