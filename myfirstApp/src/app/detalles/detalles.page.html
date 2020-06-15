@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Detalles</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{producto.nombreProd}} - {{producto.precioProd}}</ion-card-title>
+      <ion-card-subtitle>{{producto.cateProd}}</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{producto.descProd}}
+      
+      <br>
+   
+      <ion-list *ngIf = "producto.cateProd == 'Tecnologia'">
+        <ion-label>Estado:</ion-label> {{producto.estadoProducto}}
+      </ion-list>
+
+      <ion-list *ngIf = "producto.cateProd == 'Motor'">
+        <ion-label>Tipo de vehiculo:</ion-label> {{producto.tipoVehiculo}}
+        <br>{{producto.kilometrosVehiculo}}km
+        <br><ion-label>Fecha:</ion-label> {{producto.anyoVehiculo}}
+      </ion-list>
+
+      <ion-list *ngIf = "producto.cateProd == 'Inmobiliaria'">
+        <ion-label>M2:</ion-label> {{producto.metrosCuadrados}}
+        <br><ion-label>Nº de habitaciones:</ion-label> {{producto.numHabitaciones}}
+        <br><ion-label>Nº baños:</ion-label> {{producto.numBanyos}}
+        <br><ion-label>Localidad:</ion-label> {{producto.localidad}}
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
