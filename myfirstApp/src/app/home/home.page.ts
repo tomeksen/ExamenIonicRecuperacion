@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IProducto, IMotor, IInmobiliaria, ITecnologia } from '../interfaces';
 import { ProductoService } from '../services/producto.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,13 +11,25 @@ import { ProductoService } from '../services/producto.service';
 
 export class HomePage {
 
-  constructor(private _productoService : ProductoService) {
+  correo : string;
+
+  constructor(private _productoService : ProductoService, private _activatedRoute : ActivatedRoute, private router : Router) {
   }
 
   ngOnInit(){
     //this.productos = this._productoService.getProductos();
+    this.correo = this._activatedRoute.snapshot.paramMap.get("correo");
   }
 
+  addProducto() {
+    const url = `/insertar/${this.correo}`;
+    this.router.navigateByUrl(url);
+  }
+
+  misProductos() {
+    const url = `/misproductos/${this.correo}`;
+    this.router.navigateByUrl(url);
+  }
   //=============================================//
   
 }

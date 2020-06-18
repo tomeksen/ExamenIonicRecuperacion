@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>logIn</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Nombre:</ion-label>
+    <ion-input [(ngModel)]="correo"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Contraseña:</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" (click)="comprobarUsuario()" routerDirection="forward">Iniciar Sesión</ion-button>
+</ion-content>

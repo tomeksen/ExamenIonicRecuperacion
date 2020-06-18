@@ -1,0 +1,108 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Modificar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-content>  
+    <ion-item>
+      <ion-label position="floating" >Nombre:</ion-label>
+      <ion-input [(ngModel)]="producto.nombreProd"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Descripción:</ion-label>
+      <ion-input [(ngModel)]="producto.descProd"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Precio:</ion-label>
+      <ion-input type="number" [(ngModel)]="producto.precioProd"></ion-input>
+    </ion-item>
+    <!-- Motor -->
+    <ion-grid *ngIf = "producto.cateProd == 'Motor'">
+      <ion-row>
+        <ion-col size="6">
+          <ion-list>
+            <ion-radio-group [(ngModel)]="producto.tipoVehiculo">
+              <ion-item>
+                <ion-label>Coche</ion-label>
+                <ion-radio value="Coche"></ion-radio>
+              </ion-item>
+          
+              <ion-item>
+                <ion-label>Moto</ion-label>
+                <ion-radio value="Moto"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-list>
+        </ion-col>
+        <ion-col size="3" size-lg>
+          <ion-item>
+            <ion-label position="floating">Km:</ion-label>
+            <ion-input type="number" [(ngModel)]="producto.kilometrosVehiculo"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Año:</ion-label>
+            <ion-input type="number" [(ngModel)]="producto.anyoVehiculo"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- Inmobiliaria -->
+    <ion-grid *ngIf = "producto.cateProd == 'Inmobiliaria'">
+      <ion-row>
+        <ion-col size="6">
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating" [style.width.px]="width">m²:</ion-label>
+              <ion-input type="number" [(ngModel)]="producto.metrosCuadrados"></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+        <ion-col size="6" size-lg>
+          <ion-item>
+            <ion-label position="floating">nº Baños:</ion-label>
+            <ion-input type="number" [(ngModel)]="producto.numBanyos"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">nº Hab.:</ion-label>
+            <ion-input type="number" [(ngModel)]="producto.numHabitaciones"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating">Localidad:</ion-label>
+              <ion-input [(ngModel)]="producto.localidad"></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- Tecnologia -->
+    <ion-grid *ngIf = "producto.cateProd == 'Tecnologia'">
+      <ion-row>
+        <ion-col size="6">
+          <ion-list>
+            <ion-radio-group [(ngModel)]="producto.estadoProducto">
+              <ion-item>
+                <ion-label>Perfecto estado</ion-label>
+                <ion-radio value="perfectoestado"></ion-radio>
+              </ion-item>
+          
+              <ion-item>
+                <ion-label>Usado</ion-label>
+                <ion-radio value="usado"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+  
+    <ion-button expand="block" (click)="modificar()" [routerLink]="['/misproductos/', producto.propietario]">Modificar</ion-button>
+    <ion-button expand="block" (click)="eliminar()" [routerLink]="['/misproductos/', producto.propietario]">Eliminar</ion-button>
+</ion-content>

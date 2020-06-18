@@ -6,8 +6,9 @@ import { AngularFireDatabase } from '@angular/fire/database';
 @Injectable()
 
 export class ProductoService{
-
-    /*productos: (IProducto | IMotor | IInmobiliaria | ITecnologia)[] = [
+    /*
+    AEV10
+    productos: (IProducto | IMotor | IInmobiliaria | ITecnologia)[] = [
         {
           "id" : 1,
           "nombreProd": "Peugeot 208",
@@ -58,5 +59,15 @@ export class ProductoService{
       let ref=this._db.database.ref("productos");
       let res = ref.push(producto);   
       console.log("he insertado "+res.key);  
+    }
+
+    deleteproducto(key: string){
+      let ref=this._db.database.ref("productos");
+      ref.child(key).remove();
+    }
+
+    modifyProducto(producto : object, key : string) {
+      let ref=this._db.database.ref("productos");
+      ref.child(key).set(producto);
     }
 }

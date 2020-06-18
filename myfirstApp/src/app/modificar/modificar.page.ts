@@ -6,71 +6,42 @@ import { UsuariosService } from "../services/usuarios.service";
 import { IUsuario } from '../interfaces';
 
 @Component({
-  selector: 'app-insertar',
-  templateUrl: 'insertar.page.html',
-  styleUrls: ['insertar.page.scss'],
+  selector: 'app-modificar',
+  templateUrl: 'modificar.page.html',
+  styleUrls: ['modificar.page.scss'],
 })
 
-export class InsertarPage {
-  oculto1: boolean = false;
-  oculto2: boolean = false;
-  oculto3: boolean = false;
-  width: number = 200;
+export class ModificarPage {
 
-  correo: string;
+  key: string;
+  producto: object = {};
 
   constructor(private _productoService: ProductoService, private _activatedRoute: ActivatedRoute, private _ususervice: UsuariosService, private router: Router) {
   }
 
   ngOnInit() {
-    //this.productos = this._productoService.getProductos();
-    this.correo = this._activatedRoute.snapshot.paramMap.get("correo");
+    this.key = this._activatedRoute.snapshot.paramMap.get('key');
+    console.log("he recibido un "+this.key);
+
+    let ref = this._productoService.getProductos().orderByKey().equalTo(this.key);
+    
+    ref.once("value", snapshot => {
+      snapshot.forEach(child => {
+        this.producto = child.val();
+      })
+    })  
+    console.log(this.producto);
   }
 
-  nombreProd: string;
-  descProd: string;
-  cateProd: string = ""
-  precioProd: number;
-
-  tipoVehiculo: string;
-  kilometrosVehiculo: number;
-  anyoVehiculo: number;
-
-  metrosCuadrados: number;
-  numBanyos: number;
-  numHabitaciones: number;
-  localidad: string;
-
-  estadoProducto: string;
-
-  productos: (IProducto | IMotor | IInmobiliaria | ITecnologia)[] = [];
-
-
-  cambiar_Oculto(): void {
-    this.oculto1 = false;
-    this.oculto2 = false;
-    this.oculto3 = false;
+  modificar() {
+    this._productoService.modifyProducto(this.producto, this.key);
   }
 
-  cambiar_Oculto1(): void {
-    this.oculto1 = true;
-    this.oculto2 = false;
-    this.oculto3 = false;
+  eliminar() {
+    this._productoService.deleteproducto(this.key);
   }
 
-  cambiar_Oculto2(): void {
-    this.oculto1 = false;
-    this.oculto2 = true;
-    this.oculto3 = false;
-  }
-
-  cambiar_Oculto3(): void {
-    this.oculto1 = false;
-    this.oculto2 = false;
-    this.oculto3 = true;
-  }
-
-  insertarProducto() {
+  /*insertarProducto() {
 
     let producto: (IProducto | IMotor | IInmobiliaria | ITecnologia);
 
@@ -117,7 +88,7 @@ export class InsertarPage {
     }
     else if (this.cateProd === "Hogar") {
       /*this.productos.push*/
-      producto = {
+      /*producto = {
         "id": this.productos.length + 1,
         "nombreProd": this.nombreProd,
         "descProd": this.descProd,
@@ -132,7 +103,7 @@ export class InsertarPage {
     }
     delete producto.key;
     this._productoService.setProducto(producto);
-  }
+  }*/
 
   //=============================================//
 

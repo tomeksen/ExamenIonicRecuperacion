@@ -4,7 +4,8 @@ export interface IProducto {
     "descProd": string,
     "cateProd": string,
     "precioProd": number,
-    "key": string
+    "key": string,
+    "propietario": string
 }
 
 export interface IInmobiliaria extends IProducto{
@@ -22,4 +23,10 @@ export interface IMotor extends IProducto{
 
 export interface ITecnologia extends IProducto{
     "estadoProducto": string
+}
+
+export interface IUsuario {
+  "id": number,
+  "nombreUsuario": string,
+  "correo": string
 }

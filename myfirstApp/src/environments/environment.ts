@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig : {
+    apiKey: "AIzaSyDTfl-ngfbJlHRXxUEriHSJ9F_eqqrTPew",
+    authDomain: "quicktradetomas.firebaseapp.com",
+    databaseURL: "https://quicktradetomas.firebaseio.com",
+    projectId: "quicktradetomas",
+    storageBucket: "quicktradetomas.appspot.com",
+    messagingSenderId: "904785489741",
+    appId: "1:904785489741:web:1ee3445a6a434444b1d104"
+  }
 };
 
 /*

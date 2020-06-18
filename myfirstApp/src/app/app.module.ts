@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { ProductoService } from './services/producto.service';
+import { UsuariosService} from './services/usuarios.service';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
@@ -26,6 +27,7 @@ import { environment } from '../environments/environment';
   providers: [
     StatusBar,
     SplashScreen,
+    UsuariosService,
     ProductoService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

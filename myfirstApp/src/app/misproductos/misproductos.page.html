@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Misproductos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-radio-group  [(ngModel)]="cateProd">
+      <ion-list-header>
+        Seleccione categoría:
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>Todos</ion-label>
+        <ion-radio value="Todos"  (click)="cargarProducto()" checked></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Hogar</ion-label>
+        <ion-radio value="Hogar"  (click)="cargarProducto()"></ion-radio>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>Tecnología</ion-label>
+        <ion-radio value="Tecnologia" (click)="cargarProducto()"></ion-radio>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>Inmobiliaria</ion-label>
+        <ion-radio value="Inmobiliaria"  (click)="cargarProducto()"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Motor</ion-label>
+        <ion-radio value="Motor" (click)="cargarProducto()"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+  <ion-card *ngFor="let item of productos" [routerLink]="['/modificar',item.key]">
+    <ion-card-header>
+      <ion-card-title>{{item.nombreProd}} - {{item.precioProd}}</ion-card-title>
+      <ion-card-subtitle>{{item.cateProd}}</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+</ion-content>

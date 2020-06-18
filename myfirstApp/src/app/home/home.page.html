@@ -7,7 +7,10 @@
 </ion-header>
 <ion-content>
 
+  <p>Bienvenido {{correo}}</p>
+
   <ion-button expand="block" [routerLink]="['/listado']" routerDirection="forward">Listado de productos</ion-button>
-  <ion-button expand="block" [routerLink]="['/insertar']" routerDirection="forward">Insertar Producto</ion-button>
+  <ion-button expand="block" (click)="addProducto()">Insertar Producto</ion-button>
+  <ion-button expand="block" (click)="misProductos()" routerDirection="forward">Mis Productos</ion-button>
   
 </ion-content>
