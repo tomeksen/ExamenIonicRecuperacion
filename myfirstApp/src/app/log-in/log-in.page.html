@@ -5,14 +5,20 @@
 </ion-header>
 
 <ion-content>
+  <div class="ion-margin-top">
   <ion-item>
     <ion-label position="floating">Nombre:</ion-label>
     <ion-input [(ngModel)]="correo"></ion-input>
   </ion-item>
+</div>
+  <div class="ion-margin-top">
   <ion-item>
     <ion-label position="floating">Contraseña:</ion-label>
     <ion-input></ion-input>
   </ion-item>
+</div>
 
-  <ion-button expand="block" (click)="comprobarUsuario()" routerDirection="forward">Iniciar Sesión</ion-button>
+<div class="ion-margin-top">
+  <ion-button expand="block" (click)="comprobarUsuario()" routerDirection="forward" size="default">Iniciar Sesión</ion-button>
+</div>
 </ion-content>
