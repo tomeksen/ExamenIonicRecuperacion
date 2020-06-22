@@ -45,7 +45,6 @@ export class ProductoService{
         let ref=this._db.database.ref("productos");
         return ref;
     }
-
     /*getProducto(id : number) : (IProducto | IMotor | IInmobiliaria | ITecnologia){
         //return this.productos.find(x => x.id == id);
 

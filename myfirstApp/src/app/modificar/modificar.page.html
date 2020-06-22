@@ -18,6 +18,11 @@
       <ion-label position="floating">Precio:</ion-label>
       <ion-input type="number" [(ngModel)]="producto.precioProd"></ion-input>
     </ion-item>
+    <!-- ejercicio2 -->
+    <ion-item>
+      <ion-label position="floating">vendido:</ion-label>
+      <ion-input type="boolean" [(ngModel)]="producto.vendido"></ion-input>
+    </ion-item>
     <!-- Motor -->
     <ion-grid *ngIf = "producto.cateProd == 'Motor'">
       <ion-row>

@@ -85,7 +85,8 @@ export class InsertarPage {
         "kilometrosVehiculo": this.kilometrosVehiculo,
         "anyoVehiculo": this.anyoVehiculo,
         "key": " ",
-        "propietario": this.correo
+        "propietario": this.correo,
+        "vendido":false
       };
     }
     else if (this.cateProd === "Inmobiliaria") {
@@ -100,7 +101,8 @@ export class InsertarPage {
         "numHabitaciones": this.numHabitaciones,
         "localidad": this.localidad,
         "key": " ",
-        "propietario": this.correo
+        "propietario": this.correo,
+        "vendido":false
       };
     }
     else if (this.cateProd === "Tecnologia") {
@@ -112,7 +114,8 @@ export class InsertarPage {
         "precioProd": this.precioProd,
         "estadoProducto": this.estadoProducto,
         "key": " ",
-        "propietario": this.correo
+        "propietario": this.correo,
+        "vendido":false
       };
     }
     else if (this.cateProd === "Hogar") {
@@ -124,7 +127,8 @@ export class InsertarPage {
         "cateProd": this.cateProd,
         "precioProd": this.precioProd,
         "key": " ",
-        "propietario": this.correo
+        "propietario": this.correo,
+        "vendido":false
       };
     }
     else {

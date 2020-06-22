@@ -5,28 +5,33 @@ export interface IProducto {
     "cateProd": string,
     "precioProd": number,
     "key": string,
-    "propietario": string
+    "propietario": string,
+    "vendido":boolean
 }
 
 export interface IInmobiliaria extends IProducto{
     "metrosCuadrados": number,
     "numBanyos": number,
     "numHabitaciones": number,
-    "localidad": string
+    "localidad": string,
+    "vendido":boolean
 }
 
 export interface IMotor extends IProducto{
     "tipoVehiculo": string,
     "kilometrosVehiculo": number,
-    "anyoVehiculo": number
+    "anyoVehiculo": number,
+    "vendido":boolean
 }
 
 export interface ITecnologia extends IProducto{
-    "estadoProducto": string
+    "estadoProducto": string,
+    "vendido":boolean
 }
 
 export interface IUsuario {
   "id": number,
   "nombreUsuario": string,
-  "correo": string
+  "correo": string,
+  "vendido":boolean
 }

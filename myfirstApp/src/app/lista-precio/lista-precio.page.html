@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>listaPrecio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-margin-top">
+    <ion-item>
+      <ion-label position="floating">Precio:</ion-label>
+      <ion-input [(ngModel)]="dinero"></ion-input>
+    </ion-item>
+  </div>
+  <div class="ion-margin-top">
+    <ion-button expand="block" (click)="cargarProducto2()" routerDirection="forward" size="default">ver lista</ion-button>
+  </div>
+  <ion-card *ngFor="let item of productos" [routerLink]="['/lista-precio',correo]">
+    <ion-card-header>
+      <ion-card-title>{{item.nombreProd}} - {{item.precioProd}}</ion-card-title>
+      <ion-card-subtitle>{{item.cateProd}}</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+</ion-content>

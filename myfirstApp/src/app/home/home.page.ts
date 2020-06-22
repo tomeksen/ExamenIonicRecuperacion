@@ -30,6 +30,10 @@ export class HomePage {
     const url = `/misproductos/${this.correo}`;
     this.router.navigateByUrl(url);
   }
+  listaprecio(){
+    let url = `/listaprecio/${this.correo}`;
+    this.router.navigateByUrl(url)
+  }
   //=============================================//
   
 }

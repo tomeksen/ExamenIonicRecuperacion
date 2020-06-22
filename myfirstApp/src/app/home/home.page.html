@@ -17,4 +17,7 @@
   <div class="ion-margin-top">
   <ion-button expand="block" (click)="misProductos()" routerDirection="forward" size="default">Mis Productos</ion-button>
 </div>
+<div class="ion-margin-top">
+<ion-button expand="block" [routerLink]="['/lista-precio/',correo]" (click)="listaprecio()" routerDirection="forward" size="default">lista precio</ion-button>
+</div>
 </ion-content>
